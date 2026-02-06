@@ -6,15 +6,13 @@ function ElitechLanding() {
         nombre: '',
         email: '',
         telefono: '',
-        empresa: '',
-        servicio: '',
         mensaje: ''
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
         alert('Gracias por contactarnos. Este es un formulario de demostración.');
-        setFormData({ nombre: '', email: '', telefono: '', empresa: '', servicio: '', mensaje: '' });
+        setFormData({ nombre: '', email: '', telefono: '', mensaje: '' });
     };
 
     const handleChange = (e) => {
@@ -279,7 +277,7 @@ function ElitechLanding() {
             transform: scale(1.05);
         }
 
-        /* SERVICES SECTION */
+        /* SERVICES SECTION - ORIGINAL */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -386,42 +384,6 @@ function ElitechLanding() {
             font-size: 1.05rem;
         }
 
-        /* STATS SECTION */
-        .stats-section {
-            background: linear-gradient(135deg, #1E3A8A, #0EA5E9);
-            padding: 5rem 3rem;
-            color: #fff;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.2rem;
-            font-weight: 400;
-            opacity: 0.9;
-        }
-
         /* BANNER SECTION */
         .banner-section {
             background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(14, 165, 233, 0.2)),
@@ -448,14 +410,14 @@ function ElitechLanding() {
             margin: 0 auto;
         }
 
-        /* CONTACT SECTION - GLASSMORPHISM STYLE */
+        /* CONTACT SECTION - NUEVO DISEÑO MINIMALISTA */
         .contact-section-bg {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(14, 165, 233, 0.75)),
+            background: linear-gradient(135deg, rgba(51, 65, 85, 0.95), rgba(30, 41, 59, 0.95)),
                         url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=90');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            padding: 8rem 3rem;
+            padding: 6rem 3rem;
             position: relative;
         }
 
@@ -466,8 +428,7 @@ function ElitechLanding() {
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(30, 58, 138, 0.5);
-            backdrop-filter: blur(2px);
+            background: rgba(30, 41, 59, 0.85);
         }
 
         .contact-container {
@@ -479,37 +440,35 @@ function ElitechLanding() {
 
         .contact-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .contact-header h2 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #fff;
             margin-bottom: 1rem;
-            font-weight: 900;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
         }
 
         .contact-header p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
         }
 
-        /* GLASS FORM */
-        .glass-form-container {
-            background: rgba(255, 255, 255, 0.15);
+        /* FORMULARIO SIMPLE Y LIMPIO */
+        .simple-form-container {
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 3.5rem 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             max-width: 700px;
             margin: 0 auto 4rem;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.3rem;
         }
 
         .form-group label {
@@ -518,52 +477,42 @@ function ElitechLanding() {
             font-weight: 600;
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
-            text-align: left;
         }
 
         .form-group input,
-        .form-group select,
         .form-group textarea {
             width: 100%;
             padding: 1rem 1.2rem;
             background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
+            border: none;
+            border-radius: 8px;
             font-size: 1rem;
             transition: all 0.3s;
             font-family: inherit;
-            color: #1E3A8A;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(30, 58, 138, 0.5);
+            color: #1E293B;
         }
 
         .form-group input:focus,
-        .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            background: rgba(255, 255, 255, 1);
-            border-color: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
-        .submit-button-glass {
+        .submit-button-simple {
             width: 100%;
-            padding: 1.2rem;
-            background: rgba(255, 255, 255, 0.25);
+            padding: 1.1rem;
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            font-size: 1.1rem;
+            border-radius: 10px;
+            font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
@@ -572,55 +521,44 @@ function ElitechLanding() {
             margin-top: 1rem;
         }
 
-        .submit-button-glass:hover {
-            background: rgba(255, 255, 255, 0.35);
+        .submit-button-simple:hover {
+            background: rgba(255, 255, 255, 0.3);
             border-color: rgba(255, 255, 255, 0.5);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* CONTACT INFO CARDS */
-        .contact-info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
+        /* CONTACT INFO HORIZONTAL - COMO LA REFERENCIA */
+        .contact-info-horizontal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5rem;
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .contact-info-card {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .contact-info-card:hover {
-            background: rgba(255, 255, 255, 0.18);
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-info-card svg {
-            margin-bottom: 1rem;
-        }
-
-        .contact-info-card h4 {
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             color: #fff;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
         }
 
-        .contact-info-card p {
-            color: rgba(255, 255, 255, 0.9);
+        .contact-info-item svg {
+            flex-shrink: 0;
+        }
+
+        .contact-info-item div {
+            text-align: left;
+        }
+
+        .contact-info-item p {
+            margin: 0;
             font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0.3rem 0;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* FOOTER */
@@ -695,21 +633,22 @@ function ElitechLanding() {
           right: 24px;
           background-color: #25d366;
           color: #fff;
-          padding: 12px 16px;
-          border-radius: 50px;
+          padding: 14px;
+          border-radius: 50%;
           display: flex;
           align-items: center;
-          gap: 8px;
+          justify-content: center;
           text-decoration: none;
-          font-weight: 600;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
           z-index: 2000;
           transition: all 0.3s ease;
+          width: 60px;
+          height: 60px;
         }
 
         .whatsapp-float:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+          transform: scale(1.1);
+          box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
         /* RESPONSIVE */
@@ -726,13 +665,9 @@ function ElitechLanding() {
                 grid-template-columns: 1fr;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .contact-info-grid {
-                grid-template-columns: 1fr;
+            .contact-info-horizontal {
+                flex-direction: column;
+                gap: 2rem;
             }
         }
 
@@ -754,19 +689,10 @@ function ElitechLanding() {
                 margin-top: 70px;
                 height: calc(100vh - 70px);
                 padding-left: 5%;
-                align-items: center;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
-            }
-
-            .hero-subtitle-top {
-                font-size: 1rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
             }
 
             .about-content {
@@ -781,34 +707,31 @@ function ElitechLanding() {
                 font-size: 2rem;
             }
 
-            .banner-section h2 {
-                font-size: 2rem;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            .services-grid,
             .business-units-grid {
                 grid-template-columns: 1fr;
             }
 
-            .glass-form-container {
-                padding: 2.5rem 1.8rem;
+            .simple-form-container {
+                padding: 2rem 1.5rem;
             }
 
-            .contact-header h2 {
-                font-size: 2.2rem;
+            .contact-info-horizontal {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 2rem 1rem;
             }
 
-            .contact-info-grid {
-                grid-template-columns: 1fr;
+            .contact-info-item {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .whatsapp-float span {
-                display: none;
-            }
-
-            .whatsapp-float {
-                padding: 14px;
-                border-radius: 50%;
+            .contact-info-item div {
+                text-align: center;
             }
         }
     `;
@@ -933,7 +856,7 @@ function ElitechLanding() {
                     </div>
                 </section>
 
-                {/* SERVICES SECTION */}
+                {/* SERVICES SECTION - ORIGINAL SIN CAMBIOS */}
                 <section id="servicios" className="section section-white">
                     <div className="container">
                         <div className="section-header">
@@ -1003,16 +926,16 @@ function ElitechLanding() {
                     </div>
                 </section>
 
-                {/* CONTACT SECTION - GLASSMORPHISM */}
+                {/* CONTACT SECTION - SOLO ESTO CAMBIÓ */}
                 <section id="contacto" className="contact-section-bg">
                     <div className="contact-container">
                         <div className="contact-header">
-                            <h2>Contactá a Nuestro Equipo</h2>
-                            <p>¡Hablemos de tu proyecto! Estamos listos para ayudarte</p>
+                            <h2>Contactanos</h2>
+                            <p>Estamos listos para ayudarte con tu proyecto</p>
                         </div>
 
-                        {/* GLASS FORM */}
-                        <div className="glass-form-container">
+                        {/* FORMULARIO */}
+                        <div className="simple-form-container">
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label>Nombre y Apellidos</label>
@@ -1021,7 +944,6 @@ function ElitechLanding() {
                                         name="nombre"
                                         value={formData.nombre}
                                         onChange={handleChange}
-                                        placeholder=""
                                         required
                                     />
                                 </div>
@@ -1033,7 +955,6 @@ function ElitechLanding() {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        placeholder=""
                                         required
                                     />
                                 </div>
@@ -1045,7 +966,6 @@ function ElitechLanding() {
                                         name="telefono"
                                         value={formData.telefono}
                                         onChange={handleChange}
-                                        placeholder=""
                                     />
                                 </div>
 
@@ -1055,38 +975,37 @@ function ElitechLanding() {
                                         name="mensaje"
                                         value={formData.mensaje}
                                         onChange={handleChange}
-                                        placeholder=""
                                         required
                                     ></textarea>
                                 </div>
 
-                                <button type="submit" className="submit-button-glass">
+                                <button type="submit" className="submit-button-simple">
                                     Enviar mensaje
                                 </button>
                             </form>
                         </div>
 
-                        {/* CONTACT INFO CARDS */}
-                        <div className="contact-info-grid">
-                            <div className="contact-info-card">
-                                <Mail size={36} color="#fff" strokeWidth={1.5} />
-                                <h4>Email</h4>
-                                <p>info@elitech.com</p>
-                                <p>ventas@elitech.com</p>
+                        {/* CONTACT INFO HORIZONTAL */}
+                        <div className="contact-info-horizontal">
+                            <div className="contact-info-item">
+                                <Mail size={28} color="#fff" strokeWidth={1.5} />
+                                <div>
+                                    <p>info@elitech.com</p>
+                                </div>
                             </div>
 
-                            <div className="contact-info-card">
-                                <Phone size={36} color="#fff" strokeWidth={1.5} />
-                                <h4>Teléfono</h4>
-                                <p>95-0922981</p>
-                                <p>051-353047</p>
+                            <div className="contact-info-item">
+                                <Phone size={28} color="#fff" strokeWidth={1.5} />
+                                <div>
+                                    <p>948 076 606 / 989 424 903</p>
+                                </div>
                             </div>
 
-                            <div className="contact-info-card">
-                                <MapPin size={36} color="#fff" strokeWidth={1.5} />
-                                <h4>Ubicación</h4>
-                                <p>Perú</p>
-                                <p>Lunes a viernes de 8 a 17h</p>
+                            <div className="contact-info-item">
+                                <MapPin size={28} color="#fff" strokeWidth={1.5} />
+                                <div>
+                                    <p>Jr Combate de Angamos 745, Surco</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1117,9 +1036,8 @@ function ElitechLanding() {
                         <div className="footer-section">
                             <h3>Contacto</h3>
                             <p>Email: info@elitech.com</p>
-                            <p>Ventas: ventas@elitech.com</p>
-                            <p>Teléfono: 051-353047</p>
-                            <p>Perú</p>
+                            <p>Teléfono: 948 076 606</p>
+                            <p>Jr Combate de Angamos 745, Surco</p>
                             <p>Lunes a viernes de 8 a 17h</p>
                         </div>
                         <div className="footer-section">
@@ -1133,26 +1051,25 @@ function ElitechLanding() {
                         </div>
                     </div>
                     <div className="footer-bottom">
-                        <p>&copy; 2024 Corporación ELITECH EIRL. Todos los derechos reservados. | DEMO - Contenido provisional</p>
+                        <p>&copy; 2024 Corporación ELITECH EIRL. Todos los derechos reservados.</p>
                     </div>
                 </footer>
 
                 {/* WHATSAPP BUTTON */}
                 <a
-                    href="https://wa.me/51950922981"
+                    href="https://wa.me/51948076606"
                     className="whatsapp-float"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     <svg
-                        width="24"
-                        height="24"
+                        width="30"
+                        height="30"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                     >
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                     </svg>
-                    <span>WhatsApp</span>
                 </a>
             </div>
         </>
