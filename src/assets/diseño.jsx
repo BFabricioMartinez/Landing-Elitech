@@ -278,6 +278,19 @@ function ElitechLanding() {
         }
 
         /* SERVICES SECTION - PROFESSIONAL */
+        .section-services {
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.6) 0%,
+                    rgba(248, 250, 252, 0.6) 100%
+                ),
+                url('/4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -1060,8 +1073,8 @@ function ElitechLanding() {
                     </div>
                 </section>
 
-                {/* SERVICES SECTION - ORIGINAL SIN CAMBIOS */}
-                <section id="servicios" className="section section-white">
+                {/* SERVICES SECTION */}
+                <section id="servicios" className="section section-services">
                     <div className="container">
                         <div className="section-header">
                             <h2 className="section-title">Nuestros Servicios</h2>
