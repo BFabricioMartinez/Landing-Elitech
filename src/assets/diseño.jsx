@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Zap, Cpu, Wrench, LayoutGrid, Plug, Package } from 'lucide-react';
+import { Mail, Phone, MapPin, Zap, Cpu, Wrench, LayoutGrid, Plug, Package, ArrowRight, Gauge, Flame } from 'lucide-react';
 
 function ElitechLanding() {
     const [formData, setFormData] = useState({
@@ -277,22 +277,28 @@ function ElitechLanding() {
             transform: scale(1.05);
         }
 
-        /* SERVICES SECTION - ORIGINAL */
+        /* SERVICES SECTION - PROFESSIONAL */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
         }
 
         .service-card {
             background: #fff;
-            padding: 3rem 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s;
-            border-left: 5px solid #0EA5E9;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow:
+                0 1px 3px rgba(0, 0, 0, 0.04),
+                0 4px 12px rgba(0, 0, 0, 0.04);
+            transition:
+                transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card::before {
@@ -301,33 +307,191 @@ function ElitechLanding() {
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), transparent);
-            opacity: 0;
-            transition: opacity 0.4s;
+            height: 3px;
+            background: #0EA5E9;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .service-card:hover::before {
-            opacity: 1;
+            transform: scaleX(1);
         }
 
         .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-            border-left-width: 8px;
+            transform: translateY(-4px);
+            box-shadow:
+                0 4px 6px rgba(0, 0, 0, 0.04),
+                0 10px 24px rgba(0, 0, 0, 0.08);
+            border-color: #CBD5E1;
+        }
+
+        .service-icon-wrapper {
+            width: 52px;
+            height: 52px;
+            border-radius: 10px;
+            background: #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .service-card:hover .service-icon-wrapper {
+            background: #E0F2FE;
+            transform: scale(1.05);
+        }
+
+        .service-icon-wrapper svg {
+            width: 26px;
+            height: 26px;
+            color: #1E3A8A;
+            stroke-width: 1.75;
+            transition: color 0.25s ease;
+        }
+
+        .service-card:hover .service-icon-wrapper svg {
+            color: #0369A1;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            color: #1E3A8A;
-            margin-bottom: 1.2rem;
+            font-size: 1.25rem;
+            color: #1E293B;
+            margin-bottom: 0.75rem;
             font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
         .service-card p {
             color: #64748B;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .service-card-footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #F1F5F9;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #0EA5E9;
+            font-size: 0.875rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(8px);
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .service-card:hover .service-card-footer {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card-footer svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .service-card:hover .service-card-footer svg {
+            transform: translateX(4px);
+        }
+
+        /* BRANDS/PARTNERS SECTION */
+        .brands-section {
+            padding: 4rem 3rem;
+            background: #fff;
+            border-top: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .brands-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .brands-header h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #64748B;
+            font-weight: 600;
+        }
+
+        .brands-track-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .brands-track-wrapper::before,
+        .brands-track-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .brands-track-wrapper::before {
+            left: 0;
+            background: linear-gradient(90deg, #fff 0%, transparent 100%);
+        }
+
+        .brands-track-wrapper::after {
+            right: 0;
+            background: linear-gradient(90deg, transparent 0%, #fff 100%);
+        }
+
+        .brands-track {
+            display: flex;
+            gap: 4rem;
+            animation: scroll-brands 30s linear infinite;
+            width: max-content;
+        }
+
+        .brands-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-brands {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .brand-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            padding: 0 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-item:hover {
+            opacity: 1;
+        }
+
+        .brand-item span {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #334155;
+            white-space: nowrap;
+            letter-spacing: -0.02em;
         }
 
         /* BUSINESS UNITS SECTION */
@@ -770,6 +934,46 @@ function ElitechLanding() {
                     </div>
                 </section>
 
+                {/* BRANDS SECTION */}
+                <section className="brands-section">
+                    <div className="container">
+                        <div className="brands-header">
+                            <h3>Distribuidor autorizado de marcas líderes</h3>
+                        </div>
+                        <div className="brands-track-wrapper">
+                            <div className="brands-track">
+                                <div className="brand-item"><span>ABB</span></div>
+                                <div className="brand-item"><span>SIEMENS</span></div>
+                                <div className="brand-item"><span>Schneider Electric</span></div>
+                                <div className="brand-item"><span>Honeywell</span></div>
+                                <div className="brand-item"><span>BOSCH</span></div>
+                                <div className="brand-item"><span>GE</span></div>
+                                <div className="brand-item"><span>ASCO</span></div>
+                                <div className="brand-item"><span>EXTECH</span></div>
+                                <div className="brand-item"><span>Beckett</span></div>
+                                <div className="brand-item"><span>INDECO</span></div>
+                                <div className="brand-item"><span>Phelps Dodge</span></div>
+                                <div className="brand-item"><span>Mindman</span></div>
+                                <div className="brand-item"><span>CAMSCO</span></div>
+                                {/* Duplicado para loop infinito */}
+                                <div className="brand-item"><span>ABB</span></div>
+                                <div className="brand-item"><span>SIEMENS</span></div>
+                                <div className="brand-item"><span>Schneider Electric</span></div>
+                                <div className="brand-item"><span>Honeywell</span></div>
+                                <div className="brand-item"><span>BOSCH</span></div>
+                                <div className="brand-item"><span>GE</span></div>
+                                <div className="brand-item"><span>ASCO</span></div>
+                                <div className="brand-item"><span>EXTECH</span></div>
+                                <div className="brand-item"><span>Beckett</span></div>
+                                <div className="brand-item"><span>INDECO</span></div>
+                                <div className="brand-item"><span>Phelps Dodge</span></div>
+                                <div className="brand-item"><span>Mindman</span></div>
+                                <div className="brand-item"><span>CAMSCO</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* ABOUT SECTION */}
                 <section id="nosotros" className="section section-white">
                     <div className="container">
@@ -868,51 +1072,115 @@ function ElitechLanding() {
 
                         <div className="services-grid">
                             <div className="service-card">
-                                <Zap className="service-icon" />
+                                <div className="service-icon-wrapper">
+                                    <Zap />
+                                </div>
                                 <h3>Ingeniería Eléctrica</h3>
                                 <p>
                                     Diseño, cálculo y ejecución de proyectos eléctricos industriales y comerciales, con especial atención al cumplimiento normativo.
                                 </p>
+                                <div className="service-card-footer">
+                                    <span>Conocer más</span>
+                                    <ArrowRight />
+                                </div>
                             </div>
 
                             <div className="service-card">
-                                <Cpu className="service-icon" />
+                                <div className="service-icon-wrapper">
+                                    <Cpu />
+                                </div>
                                 <h3>Automatización e Instrumentación</h3>
                                 <p>
                                     Implementación de sistemas de control automatizado, instrumentación de procesos y monitoreo inteligente.
                                 </p>
+                                <div className="service-card-footer">
+                                    <span>Conocer más</span>
+                                    <ArrowRight />
+                                </div>
                             </div>
 
                             <div className="service-card">
-                                <Wrench className="service-icon" />
+                                <div className="service-icon-wrapper">
+                                    <Wrench />
+                                </div>
                                 <h3>Mantenimiento Industrial</h3>
                                 <p>
                                     Mantenimiento preventivo y correctivo de instalaciones eléctricas, equipos y sistemas industriales.
                                 </p>
+                                <div className="service-card-footer">
+                                    <span>Conocer más</span>
+                                    <ArrowRight />
+                                </div>
                             </div>
 
                             <div className="service-card">
-                                <LayoutGrid className="service-icon" />
+                                <div className="service-icon-wrapper">
+                                    <LayoutGrid />
+                                </div>
                                 <h3>Tableros Eléctricos</h3>
                                 <p>
                                     Diseño, fabricación y montaje de tableros de control, fuerza y distribución según normativa vigente.
                                 </p>
+                                <div className="service-card-footer">
+                                    <span>Conocer más</span>
+                                    <ArrowRight />
+                                </div>
                             </div>
 
                             <div className="service-card">
-                                <Plug className="service-icon" />
+                                <div className="service-icon-wrapper">
+                                    <Plug />
+                                </div>
                                 <h3>Instalaciones Eléctricas</h3>
                                 <p>
                                     Instalaciones eléctricas industriales completas, desde media y baja tensión hasta sistemas especiales.
                                 </p>
+                                <div className="service-card-footer">
+                                    <span>Conocer más</span>
+                                    <ArrowRight />
+                                </div>
                             </div>
 
                             <div className="service-card">
-                                <Package className="service-icon" />
+                                <div className="service-icon-wrapper">
+                                    <Package />
+                                </div>
                                 <h3>Suministros Industriales</h3>
                                 <p>
                                     Distribución de equipos y accesorios industriales para automatización, control e instrumentación, trabajando con marcas reconocidas del sector.
                                 </p>
+                                <div className="service-card-footer">
+                                    <span>Conocer más</span>
+                                    <ArrowRight />
+                                </div>
+                            </div>
+
+                            <div className="service-card">
+                                <div className="service-icon-wrapper">
+                                    <Gauge />
+                                </div>
+                                <h3>Sistemas Hidráulicos y Neumáticos</h3>
+                                <p>
+                                    Diseño, instalación y mantenimiento de sistemas hidráulicos y neumáticos para aplicaciones industriales de alta exigencia.
+                                </p>
+                                <div className="service-card-footer">
+                                    <span>Conocer más</span>
+                                    <ArrowRight />
+                                </div>
+                            </div>
+
+                            <div className="service-card">
+                                <div className="service-icon-wrapper">
+                                    <Flame />
+                                </div>
+                                <h3>Calderos y Quemadores Industriales</h3>
+                                <p>
+                                    Instalación, mantenimiento y reparación de calderos y quemadores industriales con servicio técnico especializado.
+                                </p>
+                                <div className="service-card-footer">
+                                    <span>Conocer más</span>
+                                    <ArrowRight />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -990,21 +1258,21 @@ function ElitechLanding() {
                             <div className="contact-info-item">
                                 <Mail size={28} color="#fff" strokeWidth={1.5} />
                                 <div>
-                                    <p>info@elitech.com</p>
+                                    <p>elitechsac@gmail.com</p>
                                 </div>
                             </div>
 
                             <div className="contact-info-item">
                                 <Phone size={28} color="#fff" strokeWidth={1.5} />
                                 <div>
-                                    <p>948 076 606 / 989 424 903</p>
+                                    <p>(051) 353047 / 950 922 981</p>
                                 </div>
                             </div>
 
                             <div className="contact-info-item">
                                 <MapPin size={28} color="#fff" strokeWidth={1.5} />
                                 <div>
-                                    <p>Jr Combate de Angamos 745, Surco</p>
+                                    <p>Jr. Javier Heraud 146, Puno</p>
                                 </div>
                             </div>
                         </div>
@@ -1030,14 +1298,16 @@ function ElitechLanding() {
                                 <li>Automatización</li>
                                 <li>Mantenimiento Industrial</li>
                                 <li>Tableros Eléctricos</li>
-                                <li>Instalaciones Eléctricas</li>
+                                <li>Sistemas Hidráulicos</li>
+                                <li>Calderos Industriales</li>
                             </ul>
                         </div>
                         <div className="footer-section">
                             <h3>Contacto</h3>
-                            <p>Email: info@elitech.com</p>
-                            <p>Teléfono: 948 076 606</p>
-                            <p>Jr Combate de Angamos 745, Surco</p>
+                            <p>Email: elitechsac@gmail.com</p>
+                            <p>Teléfono: (051) 353047</p>
+                            <p>Cel: 950 922 981</p>
+                            <p>Jr. Javier Heraud 146, Puno</p>
                             <p>Lunes a viernes de 8 a 17h</p>
                         </div>
                         <div className="footer-section">
@@ -1057,7 +1327,7 @@ function ElitechLanding() {
 
                 {/* WHATSAPP BUTTON */}
                 <a
-                    href="https://wa.me/51948076606"
+                    href="https://wa.me/51950922981"
                     className="whatsapp-float"
                     target="_blank"
                     rel="noopener noreferrer"
