@@ -5,6 +5,7 @@ function ElitechLanding() {
     const [formData, setFormData] = useState({
         nombre: '',
         email: '',
+        telefono: '',
         empresa: '',
         servicio: '',
         mensaje: ''
@@ -13,7 +14,7 @@ function ElitechLanding() {
     const handleSubmit = (e) => {
         e.preventDefault();
         alert('Gracias por contactarnos. Este es un formulario de demostración.');
-        setFormData({ nombre: '', email: '', empresa: '', servicio: '', mensaje: '' });
+        setFormData({ nombre: '', email: '', telefono: '', empresa: '', servicio: '', mensaje: '' });
     };
 
     const handleChange = (e) => {
@@ -140,22 +141,15 @@ function ElitechLanding() {
         }
 
         .hero-subtitle-top {
-    font-size: 1.1rem; /* Un poco más pequeño suele verse más elegante en mayúsculas */
-    font-weight: 700;  /* Aumentamos el grosor para que las letras tengan más cuerpo */
-    margin-bottom: 1.2rem;
-    
-    /* Cambiamos a un verde neón/brillante para que resalte sobre el azul oscuro */
-    color: #00ff88; 
-    
-    text-transform: uppercase;
-    letter-spacing: 4px; /* Aumentamos un poco el tracking para mejorar legibilidad */
-    
-    /* TRUCO CLAVE: Un sombreado suave que crea un contorno invisible 
-       y separa el texto de los detalles de la foto trasera */
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-    
-    display: block; /* Asegura que respete los márgenes */
-}
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+            display: block;
+        }
 
         .hero h1 {
             font-size: 4rem;
@@ -430,7 +424,7 @@ function ElitechLanding() {
 
         /* BANNER SECTION */
         .banner-section {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(14, 165, 233, 0.9)),
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(14, 165, 233, 0.2)),
                         url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1600&q=90');
             background-size: cover;
             background-position: center;
@@ -454,72 +448,77 @@ function ElitechLanding() {
             margin: 0 auto;
         }
 
-        /* CONTACT SECTION */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 5rem;
-            align-items: start;
+        /* CONTACT SECTION - GLASSMORPHISM STYLE */
+        .contact-section-bg {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(14, 165, 233, 0.75)),
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=90');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 8rem 3rem;
+            position: relative;
         }
 
-        .contact-info h3 {
-            font-size: 2rem;
-            color: #1E3A8A;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
+        .contact-section-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 58, 138, 0.5);
+            backdrop-filter: blur(2px);
         }
 
-        .contact-info p {
-            color: #64748B;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        .contact-detail {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: #F8FAFC;
-            border-radius: 10px;
-            transition: all 0.3s;
+        .contact-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
-        .contact-detail:hover {
-            background: #E0E7FF;
-            transform: translateX(10px);
+        .contact-header h2 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .contact-detail-text strong {
-            display: block;
-            color: #1E3A8A;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
+        .contact-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .contact-detail-text {
-            color: #64748B;
-        }
-
-        .contact-form {
-            background: #F8FAFC;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        /* GLASS FORM */
+        .glass-form-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 3.5rem 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            margin: 0 auto 4rem;
         }
 
         .form-group {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.7rem;
-            color: #1E3A8A;
-            font-weight: 700;
-            font-size: 1rem;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            text-align: left;
         }
 
         .form-group input,
@@ -527,44 +526,101 @@ function ElitechLanding() {
         .form-group textarea {
             width: 100%;
             padding: 1rem 1.2rem;
-            border: 2px solid #E2E8F0;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
             font-size: 1rem;
             transition: all 0.3s;
             font-family: inherit;
+            color: #1E3A8A;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(30, 58, 138, 0.5);
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #0EA5E9;
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 140px;
+            min-height: 120px;
         }
 
-        .submit-button {
+        .submit-button-glass {
             width: 100%;
             padding: 1.2rem;
-            background: linear-gradient(135deg, #1E3A8A, #0EA5E9);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             color: #fff;
-            border: none;
-            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.4s;
+            transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 1rem;
         }
 
-        .submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.4);
+        .submit-button-glass:hover {
+            background: rgba(255, 255, 255, 0.35);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* CONTACT INFO CARDS */
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-info-card:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-info-card svg {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-card h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-info-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0.3rem 0;
         }
 
         /* FOOTER */
@@ -632,6 +688,30 @@ function ElitechLanding() {
             }
         }
 
+        /* WHATSAPP FLOAT BUTTON */
+        .whatsapp-float {
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          background-color: #25d366;
+          color: #fff;
+          padding: 12px 16px;
+          border-radius: 50px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          text-decoration: none;
+          font-weight: 600;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+          z-index: 2000;
+          transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
         /* RESPONSIVE */
         @media (max-width: 1024px) {
             .hero h1 {
@@ -649,6 +729,10 @@ function ElitechLanding() {
             .stats-grid {
                 grid-template-columns: 1fr;
                 gap: 3rem;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -685,8 +769,7 @@ function ElitechLanding() {
                 font-size: 1.1rem;
             }
 
-            .about-content,
-            .contact-wrapper {
+            .about-content {
                 grid-template-columns: 1fr;
             }
 
@@ -705,6 +788,27 @@ function ElitechLanding() {
             .services-grid,
             .business-units-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .glass-form-container {
+                padding: 2.5rem 1.8rem;
+            }
+
+            .contact-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float span {
+                display: none;
+            }
+
+            .whatsapp-float {
+                padding: 14px;
+                border-radius: 50%;
             }
         }
     `;
@@ -771,7 +875,6 @@ function ElitechLanding() {
                     </div>
                 </section>
 
-
                 {/* BUSINESS UNITS SECTION */}
                 <section id="unidades" className="section section-gray">
                     <div className="container">
@@ -830,68 +933,67 @@ function ElitechLanding() {
                     </div>
                 </section>
 
-                  {/* SERVICES SECTION */}
-                  <section id="servicios" className="section section-white">
+                {/* SERVICES SECTION */}
+                <section id="servicios" className="section section-white">
                     <div className="container">
-                      <div className="section-header">
-                        <h2 className="section-title">Nuestros Servicios</h2>
-                        <p className="section-subtitle">
-                          Soluciones especializadas para cada necesidad industrial
-                        </p>
-                      </div>
-
-                      <div className="services-grid">
-                        <div className="service-card">
-                          <Zap className="service-icon" />
-                          <h3>Ingeniería Eléctrica</h3>
-                          <p>
-                            Diseño, cálculo y ejecución de proyectos eléctricos industriales y comerciales, con especial atención al cumplimiento normativo.
-                          </p>
+                        <div className="section-header">
+                            <h2 className="section-title">Nuestros Servicios</h2>
+                            <p className="section-subtitle">
+                                Soluciones especializadas para cada necesidad industrial
+                            </p>
                         </div>
 
-                        <div className="service-card">
-                          <Cpu className="service-icon" />
-                          <h3>Automatización e Instrumentación</h3>
-                          <p>
-                            Implementación de sistemas de control automatizado, instrumentación de procesos y monitoreo inteligente.
-                          </p>
-                        </div>
+                        <div className="services-grid">
+                            <div className="service-card">
+                                <Zap className="service-icon" />
+                                <h3>Ingeniería Eléctrica</h3>
+                                <p>
+                                    Diseño, cálculo y ejecución de proyectos eléctricos industriales y comerciales, con especial atención al cumplimiento normativo.
+                                </p>
+                            </div>
 
-                        <div className="service-card">
-                          <Wrench className="service-icon" />
-                          <h3>Mantenimiento Industrial</h3>
-                          <p>
-                            Mantenimiento preventivo y correctivo de instalaciones eléctricas, equipos y sistemas industriales.
-                          </p>
-                        </div>
+                            <div className="service-card">
+                                <Cpu className="service-icon" />
+                                <h3>Automatización e Instrumentación</h3>
+                                <p>
+                                    Implementación de sistemas de control automatizado, instrumentación de procesos y monitoreo inteligente.
+                                </p>
+                            </div>
 
-                        <div className="service-card">
-                          <LayoutGrid className="service-icon" />
-                          <h3>Tableros Eléctricos</h3>
-                          <p>
-                            Diseño, fabricación y montaje de tableros de control, fuerza y distribución según normativa vigente.
-                          </p>
-                        </div>
+                            <div className="service-card">
+                                <Wrench className="service-icon" />
+                                <h3>Mantenimiento Industrial</h3>
+                                <p>
+                                    Mantenimiento preventivo y correctivo de instalaciones eléctricas, equipos y sistemas industriales.
+                                </p>
+                            </div>
 
-                        <div className="service-card">
-                          <Plug className="service-icon" />
-                          <h3>Instalaciones Eléctricas</h3>
-                          <p>
-                            Instalaciones eléctricas industriales completas, desde media y baja tensión hasta sistemas especiales.
-                          </p>
-                        </div>
+                            <div className="service-card">
+                                <LayoutGrid className="service-icon" />
+                                <h3>Tableros Eléctricos</h3>
+                                <p>
+                                    Diseño, fabricación y montaje de tableros de control, fuerza y distribución según normativa vigente.
+                                </p>
+                            </div>
 
-                        <div className="service-card">
-                          <Package className="service-icon" />
-                          <h3>Suministros Industriales</h3>
-                          <p>
-                            Distribución de equipos y accesorios industriales para automatización, control e instrumentación, trabajando con marcas reconocidas del sector.
-                          </p>
+                            <div className="service-card">
+                                <Plug className="service-icon" />
+                                <h3>Instalaciones Eléctricas</h3>
+                                <p>
+                                    Instalaciones eléctricas industriales completas, desde media y baja tensión hasta sistemas especiales.
+                                </p>
+                            </div>
+
+                            <div className="service-card">
+                                <Package className="service-icon" />
+                                <h3>Suministros Industriales</h3>
+                                <p>
+                                    Distribución de equipos y accesorios industriales para automatización, control e instrumentación, trabajando con marcas reconocidas del sector.
+                                </p>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </section>
-
+                </section>
 
                 {/* BANNER SECTION */}
                 <section className="banner-section">
@@ -901,113 +1003,91 @@ function ElitechLanding() {
                     </div>
                 </section>
 
-                {/* CONTACT SECTION */}
-                <section id="contacto" className="section section-white">
-                    <div className="container">
-                        <div className="section-header">
-                            <h2 className="section-title">Contactá a Nuestro Equipo</h2>
-                            <p className="section-subtitle">
-                                ¡Hablemos de tu proyecto! Estamos listos para ayudarte en cada etapa
-                            </p>
+                {/* CONTACT SECTION - GLASSMORPHISM */}
+                <section id="contacto" className="contact-section-bg">
+                    <div className="contact-container">
+                        <div className="contact-header">
+                            <h2>Contactá a Nuestro Equipo</h2>
+                            <p>¡Hablemos de tu proyecto! Estamos listos para ayudarte</p>
                         </div>
-                        <div className="contact-wrapper">
-                            <div className="contact-info">
-                                <h3>Información de Contacto</h3>
-                                <p>
-                                    Con años de experiencia y un compromiso firme con la calidad, estamos listos para ayudarte desde la ingeniería hasta la instalación.
-                                </p>
-                                <div className="contact-detail">
-    <div className="contact-detail-icon">
-        <Mail size={30} color="#000" />
-    </div>
-    <div className="contact-detail-text">
-        <strong>Email</strong><br />
-        info@elitech.com<br />
-        ventas@elitech.com
-    </div>
-</div>
 
-<div className="contact-detail">
-    <div className="contact-detail-icon">
-        <Phone size={30} color="#000" />
-    </div>
-    <div className="contact-detail-text">
-        <strong>Teléfono</strong><br />
-        95-0922981<br />
-        051-353047
-    </div>
-</div>
-
-<div className="contact-detail">
-    <div className="contact-detail-icon">
-        <MapPin size={30} color="#000" />
-    </div>
-    <div className="contact-detail-text">
-        <strong>Ubicación</strong><br />
-        Perú<br />
-        Lunes a viernes de 8 a 17h
-    </div>
-</div>
-
-                            </div>
-                            <form className="contact-form" onSubmit={handleSubmit}>
+                        {/* GLASS FORM */}
+                        <div className="glass-form-container">
+                            <form onSubmit={handleSubmit}>
                                 <div className="form-group">
-                                    <label>Nombre Completo *</label>
+                                    <label>Nombre y Apellidos</label>
                                     <input
                                         type="text"
                                         name="nombre"
                                         value={formData.nombre}
                                         onChange={handleChange}
+                                        placeholder=""
                                         required
                                     />
                                 </div>
+
                                 <div className="form-group">
-                                    <label>Email *</label>
+                                    <label>Mail</label>
                                     <input
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
+                                        placeholder=""
                                         required
                                     />
                                 </div>
+
                                 <div className="form-group">
-                                    <label>Empresa</label>
+                                    <label>Teléfono</label>
                                     <input
-                                        type="text"
-                                        name="empresa"
-                                        value={formData.empresa}
+                                        type="tel"
+                                        name="telefono"
+                                        value={formData.telefono}
                                         onChange={handleChange}
+                                        placeholder=""
                                     />
                                 </div>
+
                                 <div className="form-group">
-                                    <label>Tipo de Servicio</label>
-                                    <select
-                                        name="servicio"
-                                        value={formData.servicio}
-                                        onChange={handleChange}
-                                    >
-                                        <option value="">Seleccione un servicio</option>
-                                        <option value="ingenieria">Ingeniería</option>
-                                        <option value="obras">Obras</option>
-                                        <option value="tableros">Tableros</option>
-                                        <option value="automatizacion">Automatización</option>
-                                        <option value="otro">Otro</option>
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label>Mensaje *</label>
+                                    <label>Mensaje</label>
                                     <textarea
                                         name="mensaje"
                                         value={formData.mensaje}
                                         onChange={handleChange}
+                                        placeholder=""
                                         required
                                     ></textarea>
                                 </div>
-                                <button type="submit" className="submit-button">
-                                    Enviar Mensaje
+
+                                <button type="submit" className="submit-button-glass">
+                                    Enviar mensaje
                                 </button>
                             </form>
+                        </div>
+
+                        {/* CONTACT INFO CARDS */}
+                        <div className="contact-info-grid">
+                            <div className="contact-info-card">
+                                <Mail size={36} color="#fff" strokeWidth={1.5} />
+                                <h4>Email</h4>
+                                <p>info@elitech.com</p>
+                                <p>ventas@elitech.com</p>
+                            </div>
+
+                            <div className="contact-info-card">
+                                <Phone size={36} color="#fff" strokeWidth={1.5} />
+                                <h4>Teléfono</h4>
+                                <p>95-0922981</p>
+                                <p>051-353047</p>
+                            </div>
+
+                            <div className="contact-info-card">
+                                <MapPin size={36} color="#fff" strokeWidth={1.5} />
+                                <h4>Ubicación</h4>
+                                <p>Perú</p>
+                                <p>Lunes a viernes de 8 a 17h</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -1056,6 +1136,24 @@ function ElitechLanding() {
                         <p>&copy; 2024 Corporación ELITECH EIRL. Todos los derechos reservados. | DEMO - Contenido provisional</p>
                     </div>
                 </footer>
+
+                {/* WHATSAPP BUTTON */}
+                <a
+                    href="https://wa.me/51950922981"
+                    className="whatsapp-float"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                    >
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    <span>WhatsApp</span>
+                </a>
             </div>
         </>
     );
